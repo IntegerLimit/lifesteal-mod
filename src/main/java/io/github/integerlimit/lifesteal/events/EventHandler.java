@@ -2,6 +2,7 @@ package io.github.integerlimit.lifesteal.events;
 
 import io.github.integerlimit.lifesteal.LifeSteal;
 import io.github.integerlimit.lifesteal.commands.ExtractHeartsCommand;
+import io.github.integerlimit.lifesteal.commands.GetHeartsCommand;
 import io.github.integerlimit.lifesteal.commands.SetMaxHeartsCommand;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
@@ -60,5 +61,6 @@ public class EventHandler
         var dispatcher = event.getDispatcher();
         SetMaxHeartsCommand.register(dispatcher);
         ExtractHeartsCommand.register(dispatcher);
+        GetHeartsCommand.register(dispatcher);
     }
 }

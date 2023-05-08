@@ -2,6 +2,7 @@ package io.github.integerlimit.lifesteal.commands;
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
+import net.minecraft.ChatFormatting;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;
@@ -35,7 +36,8 @@ public class SetMaxHeartsCommand {
                 Objects.requireNonNull(player.getAttribute(Attributes.MAX_HEALTH)).setBaseValue(health);
                 player.setHealth(health);
 
-                commandSource.sendSuccess(Component.translatable("command.setHearts.success", iterator.next().getDisplayName(), hearts), true);
+                commandSource.sendSuccess(Component.translatable("command.setHearts.success", iterator.next().getDisplayName(), hearts)
+                        .withStyle(ChatFormatting.GREEN), true);
             }
         }
         return players.size();

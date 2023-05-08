@@ -11,6 +11,7 @@
   "command.setHearts.isCreative": "Cannot set the maximum hearts of %s, as they are in Creative or Spectator.",
 
   "command.extract.fail_hearts": "Cannot extract hearts, because you do not have enough hearts.",
+  "command.extract.fail_not_full": "Cannot extract hearts. You must be on full health to extract hearts!",
   "command.extract.fail_creative": "Cannot extract hearts, because you are in Creative or Spectator.",
   "command.extract.fail_space": "Only extracted %s hearts, because you do not have enough inventory space.",
   "command.extract.success_single": "Successfully extracted 1 heart!",

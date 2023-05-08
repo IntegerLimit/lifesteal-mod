@@ -1,10 +1,18 @@
 {
   "item.lifesteal.heart": "Heart",
   "item.lifesteal.ultimate_heart": "Ultimate Heart",
+
   "message.hearts.min": "You do not have enough hearts to use this item!",
   "message.hearts.max": "You have too many hearts! You can no longer use this item!",
   "message.hearts.creative": "This item cannot be used in creative!",
   "message.hearts.add": "You now have 1 more heart!",
-  "command.setHearts.success": "Set the max hearts of %s to %s.",
-  "command.setHearts.isCreative": "Cannot set the hearts of %s, as they are in Creative or Spectator."
+
+  "command.setHearts.success": "Set the maximum hearts of %s to %s.",
+  "command.setHearts.isCreative": "Cannot set the maximum hearts of %s, as they are in Creative or Spectator.",
+
+  "command.extract.fail_hearts": "Cannot extract hearts, because you do not have enough hearts.",
+  "command.extract.fail_creative": "Cannot extract hearts, because you are in Creative or Spectator.",
+  "command.extract.fail_space": "Only extracted %s hearts, because you do not have enough inventory space.",
+  "command.extract.success_single": "Successfully extracted 1 heart!",
+  "command.extract.success_multiple": "Successfully extracted %s hearts!"
 }

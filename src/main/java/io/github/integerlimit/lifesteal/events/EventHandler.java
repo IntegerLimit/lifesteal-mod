@@ -1,6 +1,7 @@
 package io.github.integerlimit.lifesteal.events;
 
 import io.github.integerlimit.lifesteal.LifeSteal;
+import io.github.integerlimit.lifesteal.commands.ExtractHeartsCommand;
 import io.github.integerlimit.lifesteal.commands.SetMaxHeartsCommand;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
@@ -51,12 +52,13 @@ public class EventHandler
 
         event.getEntity().setHealth((float) health);
 
-        LifeSteal.getLogger().info("[PlayerCloneManager] Reduced's {} health by 2. New health is {}, used to be {}.", event.getEntity().getName(), oldHealth, health);
+        LifeSteal.getLogger().info("[PlayerCloneManager] Reduced {}'s health by 2. New health is {}, used to be {}.", event.getEntity().getName(), oldHealth, health);
     }
 
     @SubscribeEvent
     public static void onRegisterCommandEvent(RegisterCommandsEvent event) {
         var dispatcher = event.getDispatcher();
         SetMaxHeartsCommand.register(dispatcher);
+        ExtractHeartsCommand.register(dispatcher);
     }
 }

@@ -30,8 +30,9 @@ public class EventHandler
         // Use block's spawn method
         Block.popResource(player.level, deathPos, new ItemStack(LifeSteal.HEART.get()));
 
-        LifeSteal.getLogger().info("[DeathManager] Spawned Heart, from {}'s death.", player.getName());
+        LifeSteal.getLogger().info("[DeathManager] Heart Spawned, from {} dying.", player.getName());
     }
+
 
     @SubscribeEvent
     public static void playerCloneManager(PlayerEvent.Clone event) {
@@ -53,7 +54,7 @@ public class EventHandler
 
         event.getEntity().setHealth((float) health);
 
-        LifeSteal.getLogger().info("[PlayerCloneManager] Reduced {}'s health by 2. New health is {}, used to be {}.", event.getEntity().getName(), oldHealth, health);
+        LifeSteal.getLogger().info("[PlayerCloneManager] {} has had their health reduced by 2. New health is {}, used to be {}.", event.getEntity().getName(), (int) oldHealth, (int) health);
     }
 
     @SubscribeEvent

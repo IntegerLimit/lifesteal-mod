@@ -18,5 +18,7 @@
   "command.extract.fail_creative": "Cannot extract hearts, because you are in Creative or Spectator.",
   "command.extract.fail_space": "Only extracted %s hearts, because you do not have enough inventory space.",
   "command.extract.success_single": "Successfully extracted 1 heart!",
-  "command.extract.success_multiple": "Successfully extracted %s hearts!"
+  "command.extract.success_multiple": "Successfully extracted %s hearts!",
+
+  "error.spawn_block_protection": "You are trying to place or mine a block in the Spawn Block Protection Zone! You will have to move around %s blocks away."
 }

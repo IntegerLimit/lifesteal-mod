@@ -1,6 +1,7 @@
 package io.github.integerlimit.lifesteal;
 
 import com.mojang.logging.LogUtils;
+import io.github.integerlimit.lifesteal.config.ServerConfig;
 import io.github.integerlimit.lifesteal.events.EventHandler;
 import io.github.integerlimit.lifesteal.items.HeartItem;
 import net.minecraft.ChatFormatting;
@@ -11,7 +12,9 @@ import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -53,6 +56,7 @@ public class LifeSteal
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addToCreative);
+        ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, ServerConfig.getGeneralSpec());
     }
 
     private void addToCreative(CreativeModeTabEvent.BuildContents event)

@@ -80,14 +80,15 @@ public class EventHandler
      * @return Returns true if breaching spawn block protection.
      */
     private static boolean manageSpawnProt(@Nonnull Entity entity, @Nonnull BlockEvent event) {
-        if (entity.getLevel().dimension().equals(Level.OVERWORLD) || ServerConfig.getGeneralConfig().spawnProtectionRadius.get() == 0)
+        LifeSteal.getLogger().info("BlockEvent occurred");
+        if (!entity.getLevel().dimension().equals(Level.OVERWORLD) || ServerConfig.getGeneralConfig().spawnProtectionRadius.get() == 0)
             return false;
 
         int posX = event.getPos().getX();
         int posZ = event.getPos().getZ();
         int worldX = event.getLevel().getLevelData().getXSpawn();
         int worldZ = event.getLevel().getLevelData().getZSpawn();
-        int spawnProtection = ServerConfig.getGeneralConfig().spawnProtectionRadius.get();
+        int spawnProtection = 16;
         if (posX > worldX + spawnProtection || posZ > worldZ + spawnProtection
                 || posX < worldX - spawnProtection || posZ < worldZ - spawnProtection) {
             if (event.isCancelable())

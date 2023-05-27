@@ -88,22 +88,25 @@ public class EventHandler
         int posZ = event.getPos().getZ();
         int worldX = event.getLevel().getLevelData().getXSpawn();
         int worldZ = event.getLevel().getLevelData().getZSpawn();
-        int spawnProtection = 16;
+        int spawnProtection = ServerConfig.getGeneralConfig().spawnProtectionRadius.get();
+
+        // Player outside spawn protection
         if (posX > worldX + spawnProtection || posZ > worldZ + spawnProtection
-                || posX < worldX - spawnProtection || posZ < worldZ - spawnProtection) {
-            if (event.isCancelable())
-                event.setCanceled(true);
-            else
-                LifeSteal.getLogger().error("[SpawnBlockProtectionManager] Failed to cancel event " + event + " caused by entity " + entity.getName());
-            return true;
-        }
-        return false;
+                || posX < worldX - spawnProtection || posZ < worldZ - spawnProtection)
+            return false;
+
+        if (event.isCancelable())
+            event.setCanceled(true);
+        else
+            LifeSteal.getLogger().error("[SpawnBlockProtectionManager] Failed to cancel event " + event + " caused by entity " + entity.getName());
+
+        return true;
     }
 
     @SubscribeEvent
     public static void onBlockBrokenEvent(BlockEvent.BreakEvent event) {
         if (manageSpawnProt(event.getPlayer(), event))
-            event.getPlayer().displayClientMessage(Component.translatable("error.spawn_block_protection", ServerConfig.getGeneralConfig().spawnProtectionRadius)
+            event.getPlayer().displayClientMessage(Component.translatable("error.spawn_block_protection", ServerConfig.getGeneralConfig().spawnProtectionRadius.get())
                     .withStyle(ChatFormatting.RED), true);
     }
 
@@ -111,7 +114,7 @@ public class EventHandler
     public static void onBlockBrokenEvent(BlockEvent.EntityPlaceEvent event) {
         if (event.getEntity() != null)
             if (manageSpawnProt(event.getEntity(), event) && event.getEntity() instanceof Player player)
-                player.displayClientMessage(Component.translatable("error.spawn_block_protection", ServerConfig.getGeneralConfig().spawnProtectionRadius)
+                player.displayClientMessage(Component.translatable("error.spawn_block_protection", ServerConfig.getGeneralConfig().spawnProtectionRadius.get())
                         .withStyle(ChatFormatting.RED), true);
     }
 }

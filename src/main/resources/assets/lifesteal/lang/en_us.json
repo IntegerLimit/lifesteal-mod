@@ -20,5 +20,5 @@
   "command.extract.success_single": "Successfully extracted 1 heart!",
   "command.extract.success_multiple": "Successfully extracted %s hearts!",
 
-  "error.spawn_block_protection": "You are trying to place or mine a block in the Spawn Block Protection Zone! You will have to move around %s blocks away."
+  "error.spawn_block_protection": "You are trying to change a block in the Spawn Block Protection Zone! You will have to move around %s blocks away."
 }

@@ -3,6 +3,7 @@ package io.github.integerlimit.lifesteal;
 import com.mojang.logging.LogUtils;
 import io.github.integerlimit.lifesteal.config.ServerConfig;
 import io.github.integerlimit.lifesteal.events.EventHandler;
+import io.github.integerlimit.lifesteal.events.SpawnBlockProtectionHandler;
 import io.github.integerlimit.lifesteal.items.HeartItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -40,22 +41,25 @@ public class LifeSteal
 
     public LifeSteal()
     {
+        // Get buses for registering
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         IEventBus forgeEventBus = MinecraftForge.EVENT_BUS;
 
-        // Register death handler
+        // Register generic event handler
         forgeEventBus.register(EventHandler.class);
+
+        // Register SpawnBlockProtectionHandler
+        forgeEventBus.register(SpawnBlockProtectionHandler.class);
 
         // Register the Deferred Register to the mod event bus so blocks get registered
         BLOCKS.register(modEventBus);
         // Register the Deferred Register to the mod event bus so items get registered
         ITEMS.register(modEventBus);
 
-        // Register ourselves for server and other game events we are interested in
-        forgeEventBus.register(this);
-
-        // Register the item to a creative tab
+        // Register items to creative tabs
         modEventBus.addListener(this::addToCreative);
+
+        // Register Config
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, ServerConfig.getGeneralSpec());
     }
 

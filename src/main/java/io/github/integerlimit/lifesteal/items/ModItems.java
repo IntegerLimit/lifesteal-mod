@@ -57,7 +57,7 @@ public class ModItems {
 
         HEART_INDEX = new ArrayList<>(MAX_HEALTH + 1);
 
-        // Setup Hearts HashMap
+        // Setup Hearts List
         HEARTS.add(Triple.of(new ItemStack(DECAYED_HEART.get()), DECAYED_MIN, DECAYED_MAX));
         HEARTS.add(Triple.of(new ItemStack(HEART.get()), HEART_MIN, HEART_MAX));
         HEARTS.add(Triple.of(new ItemStack(ULTIMATE_HEART.get()), ULTIMATE_MIN, ULTIMATE_MAX));

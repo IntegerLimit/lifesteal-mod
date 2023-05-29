@@ -87,7 +87,7 @@ public class SpawnBlockProtectionHandler {
 
         Level level = event.getLevel();
 
-        if (!level.dimension().equals(Level.OVERWORLD))
+        if (!level.dimension().equals(Level.OVERWORLD) || ServerConfig.getGeneralConfig().spawnProtectionRadius.get() == 0)
             return;
 
         int worldX = level.getLevelData().getXSpawn();

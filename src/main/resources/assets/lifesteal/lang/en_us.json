@@ -1,6 +1,12 @@
 {
+  "item.lifesteal.decayed_heart": "Decayed Heart",
   "item.lifesteal.heart": "Heart",
   "item.lifesteal.ultimate_heart": "Ultimate Heart",
+
+  "tooltip.heart.right_click": "Right Click while holding to gain a permanent heart!",
+  "tooltip.heart.shift": "Press SHIFT for more info",
+  "tooltip.heart.min": "This item can only be used when you have more than %s hearts.",
+  "tooltip.heart.max": "This item can only be used when you have less than %s hearts.",
 
   "message.hearts.min": "You do not have enough hearts to use this item!",
   "message.hearts.max": "You have too many hearts! You can no longer use this item!",

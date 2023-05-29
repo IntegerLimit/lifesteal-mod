@@ -4,14 +4,16 @@ import io.github.integerlimit.lifesteal.LifeSteal;
 import io.github.integerlimit.lifesteal.commands.ExtractHeartsCommand;
 import io.github.integerlimit.lifesteal.commands.GetHeartsCommand;
 import io.github.integerlimit.lifesteal.commands.SetMaxHeartsCommand;
+import io.github.integerlimit.lifesteal.items.ModItems;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.Block;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+
+import java.util.List;
 
 public class EventHandler
 {
@@ -24,13 +26,25 @@ public class EventHandler
 
         LifeSteal.getLogger().info("[DeathManager] Is Player's death.");
 
-        // Spawn heart
-        var deathPos = player.getOnPos();
+        // Checks
+        if (player.getMaxHealth() <= 0) {
+            var health = player.getAttribute(Attributes.MAX_HEALTH);
+            if (health != null)
+                health.setBaseValue(0);
+            return;
+        }
 
-        // Use block's spawn method
-        Block.popResource(player.level, deathPos, new ItemStack(LifeSteal.HEART.get()));
+        // Drop Heart
+        List< ItemStack> heartIndex = ModItems.getHeartIndex();
+        if (player.getMaxHealth() > heartIndex.size() - 1)
+            // Block.popResource(player.level, deathPos, ModItems.HEART_INDEX.get(ModItems.HEART_INDEX.size()).copy());
+            player.drop(heartIndex.get(heartIndex.size() - 1).copy(), true, false);
 
-        LifeSteal.getLogger().info("[DeathManager] Heart Spawned, from {} dying.", player.getName());
+        else
+            // Block.popResource(player.level, deathPos, ModItems.HEART_INDEX.get((int) player.getMaxHealth()).copy());
+            player.drop(heartIndex.get((int) player.getMaxHealth()).copy(), true, false);
+
+        LifeSteal.getLogger().info("[DeathManager] {} Spawned, from {} dying.", heartIndex.get((int) player.getMaxHealth()).copy(), player.getName());
     }
 
 

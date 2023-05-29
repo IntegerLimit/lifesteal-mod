@@ -3,6 +3,7 @@ package io.github.integerlimit.lifesteal.commands;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import io.github.integerlimit.lifesteal.LifeSteal;
+import io.github.integerlimit.lifesteal.items.ModItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
@@ -54,11 +55,8 @@ public class ExtractHeartsCommand {
             }
 
             for (int i = 0; i < hearts; i++) {
-                LifeSteal.getLogger().info("Ran, with i = " + i);
-                if (playerHealth > 40)
-                    stacksToAdd.add(new ItemStack(LifeSteal.ULTIMATE_HEART.get()));
-                else
-                    stacksToAdd.add(new ItemStack(LifeSteal.HEART.get()));
+                stacksToAdd.add(ModItems.getHeartIndex().get((int) playerHealth).copy());
+                LifeSteal.getLogger().info("[ExtractHearts]: Ran, with i = {}, playerHealth = {}, spawned Item {}", i, playerHealth, ModItems.getHeartIndex().get((int) playerHealth).copy());
                 playerHealth -= 2;
             }
 

@@ -39,8 +39,8 @@ public class LifeSteal
         // Register SpawnBlockProtectionHandler
         forgeEventBus.register(SpawnBlockProtectionHandler.class);
 
-        // Register Item Handler
-        modEventBus.register(ModItems.class);
+        // Register Item Creative Tab adder
+        modEventBus.addListener(ModItems::addToCreative);
 
         // Items
         ModItems.init(modEventBus);

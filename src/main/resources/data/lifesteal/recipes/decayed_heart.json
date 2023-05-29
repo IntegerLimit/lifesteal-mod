@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "combat",
   "pattern": [
     "###",
     "#A#",
@@ -15,5 +16,6 @@
   },
   "result": {
     "item": "lifesteal:decayed_heart"
-  }
+  },
+  "show_notification": false
 }

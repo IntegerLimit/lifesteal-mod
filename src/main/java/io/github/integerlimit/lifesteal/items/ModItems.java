@@ -1,13 +1,11 @@
 package io.github.integerlimit.lifesteal.items;
 
 import io.github.integerlimit.lifesteal.LifeSteal;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -44,10 +42,9 @@ public class ModItems {
         // Register the Item Register to the event bus
         REGISTER.register(eventBus);
     }
-    @SubscribeEvent
-    public static void addToCreative(CreativeModeTabEvent.BuildContents event)
-    {
-        if (event.getTab() == CreativeModeTabs.COMBAT){
+
+    public static void addToCreative(CreativeModeTabEvent.BuildContents event) {
+        if (event.getTab() == CreativeTab.LIFESTEAL_TAB) {
             event.accept(DECAYED_HEART);
             event.accept(HEART);
             event.accept(ULTIMATE_HEART);

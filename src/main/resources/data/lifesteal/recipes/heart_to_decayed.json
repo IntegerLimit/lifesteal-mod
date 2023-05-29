@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "combat",
+  "ingredients": [
+    {
+      "item": "lifesteal:heart"
+    }
+  ],
+  "result": {
+    "item": "lifesteal:decayed_heart",
+    "count": 4
+  },
+  "show_notification": false
+}

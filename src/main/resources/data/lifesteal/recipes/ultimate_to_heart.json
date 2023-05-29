@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "combat",
+  "ingredients": [
+    {
+      "item": "lifesteal:ultimate_heart"
+    }
+  ],
+  "result": {
+    "item": "lifesteal:heart",
+    "count": 4
+  },
+  "show_notification": false
+}

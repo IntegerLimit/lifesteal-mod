@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "combat",
+  "pattern": [
+    "#H#",
+    "HSH",
+    "#H#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:diamond"
+    },
+    "S": {
+      "item": "minecraft:wither_skeleton_skull"
+    },
+    "H": {
+      "item": "lifesteal:decayed_heart"
+    }
+  },
+  "result": {
+    "item": "lifesteal:heart"
+  },
+  "show_notification": false
+}

@@ -1,0 +1,23 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "unlock_right_away": {
+      "conditions": {},
+      "trigger": "minecraft:tick"
+    }
+  },
+  "requirements": [
+    [
+      "unlock_right_away"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "lifesteal:decayed_heart",
+      "lifesteal:heart",
+      "lifesteal:ultimate_heart",
+      "lifesteal:heart_to_decayed",
+      "lifesteal:ultimate_to_heart"
+    ]
+  }
+}

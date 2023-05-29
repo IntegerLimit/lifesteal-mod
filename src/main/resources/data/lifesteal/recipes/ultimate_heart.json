@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "combat",
+  "pattern": [
+    "#H#",
+    "HSH",
+    "#H#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "S": {
+      "item": "minecraft:nether_star"
+    },
+    "H": {
+      "item": "lifesteal:heart"
+    }
+  },
+  "result": {
+    "item": "lifesteal:ultimate_heart"
+  },
+  "show_notification": false
+}

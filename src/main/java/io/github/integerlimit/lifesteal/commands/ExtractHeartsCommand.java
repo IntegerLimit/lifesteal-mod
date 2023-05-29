@@ -56,7 +56,7 @@ public class ExtractHeartsCommand {
 
             for (int i = 0; i < hearts; i++) {
                 stacksToAdd.add(ModItems.getHeartIndex().get((int) playerHealth).copy());
-                LifeSteal.getLogger().info("[ExtractHearts]: Ran, with i = {}, playerHealth = {}, spawned Item {}", i, playerHealth, ModItems.getHeartIndex().get((int) playerHealth).copy());
+                LifeSteal.getLogger().info("[ExtractHearts]: Ran, with i = {}, playerHealth = {}, spawned Item {}, player {}", i, playerHealth, ModItems.getHeartIndex().get((int) playerHealth).copy(), player.getName());
                 playerHealth -= 2;
             }
 

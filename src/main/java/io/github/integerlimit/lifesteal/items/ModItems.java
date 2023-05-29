@@ -20,7 +20,7 @@ public class ModItems {
     // Items registerer
     private static final DeferredRegister<Item> REGISTER = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
 
-    // Heart values
+    // Heart values. Min is non-inclusive, Max is inclusive
     public static final int DECAYED_MIN = 0;
     public static final int DECAYED_MAX = 20;
     public static final int HEART_MIN = 20;

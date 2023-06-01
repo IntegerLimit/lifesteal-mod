@@ -72,6 +72,15 @@ public class SpawnBlockProtectionHandler {
 
     }
 
+    // Item Use specific. aka buckets, flint & steel, etc.
+    @SubscribeEvent
+    public static void onFluidPlacedEvent(PlayerInteractEvent.RightClickItem event) {
+        if (manageSpawnProtection(event.getEntity(), event.getPos(), event) && event.getLevel().isClientSide)
+            // getEntity returns a Player
+            event.getEntity().displayClientMessage(Component.translatable("error.spawn_block_protection")
+                    .withStyle(ChatFormatting.RED), true);
+    }
+
     // Generic test and cancel
     @SubscribeEvent
     public static void onBlockBrokenEvent(LivingDestroyBlockEvent event) {

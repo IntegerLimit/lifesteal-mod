@@ -12,10 +12,10 @@ import net.minecraftforge.fml.common.Mod;
 import static io.github.integerlimit.lifesteal.LifeSteal.MODID;
 
 @Mod.EventBusSubscriber(modid = LifeSteal.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
-public class CreativeTab {
+public class CustomCreativeModeTab {
     public static CreativeModeTab LIFESTEAL_TAB;
     @SubscribeEvent
-    public static void registerCreativeTabs(CreativeModeTabEvent.Register event) {
+    public static void registerCreativeModeTabs(CreativeModeTabEvent.Register event) {
         LIFESTEAL_TAB = event.registerCreativeModeTab(new ResourceLocation(MODID, "lifesteal"),
                 builder -> builder.icon(() -> new ItemStack(ModItems.HEART.get()))
                         .title(Component.translatable("creativemodetab.lifesteal"))

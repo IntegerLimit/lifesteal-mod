@@ -1,12 +1,15 @@
 package io.github.integerlimit.lifesteal;
 
 import com.mojang.logging.LogUtils;
+import io.github.integerlimit.lifesteal.blocks.ModBlocks;
 import io.github.integerlimit.lifesteal.config.ServerConfig;
 import io.github.integerlimit.lifesteal.events.EventHandler;
 import io.github.integerlimit.lifesteal.events.SpawnBlockProtectionHandler;
+import io.github.integerlimit.lifesteal.items.CustomCreativeModeTab;
 import io.github.integerlimit.lifesteal.items.ModItems;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
@@ -22,11 +25,9 @@ public class LifeSteal
 {
     // Define mod id in a common place for everything to reference
     public static final String MODID = "lifesteal";
+
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
-    // Create a Deferred Register to hold Blocks which will all be registered under the "lifesteal" namespace
-    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
-
     public LifeSteal()
     {
         // Get buses for registering
@@ -39,17 +40,29 @@ public class LifeSteal
         // Register SpawnBlockProtectionHandler
         forgeEventBus.register(SpawnBlockProtectionHandler.class);
 
-        // Register Item Creative Tab adder
-        modEventBus.addListener(ModItems::addToCreative);
+        // Register Creative Tab adder
+        modEventBus.addListener(this::addToCreative);
 
         // Items
         ModItems.init(modEventBus);
 
-        // Register the Deferred Register to the mod event bus so blocks get registered
-        BLOCKS.register(modEventBus);
+        // Blocks
+        ModBlocks.init(modEventBus);
 
         // Register Config
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, ServerConfig.getGeneralSpec());
+    }
+
+    public void addToCreative(CreativeModeTabEvent.BuildContents event) {
+        if (event.getTab() == CustomCreativeModeTab.LIFESTEAL_TAB) {
+            // Items
+            event.accept(ModItems.DECAYED_HEART);
+            event.accept(ModItems.HEART);
+            event.accept(ModItems.ULTIMATE_HEART);
+
+            // Blocks
+            event.accept(ModBlocks.REVIVE_BLOCK);
+        }
     }
 
     public static Logger getLogger() {

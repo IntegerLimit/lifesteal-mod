@@ -18,7 +18,7 @@ import static io.github.integerlimit.lifesteal.LifeSteal.MODID;
 public class ModItems {
 
     // Items registerer
-    private static final DeferredRegister<Item> REGISTER = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
+    public static final DeferredRegister<Item> REGISTER = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
 
     // Heart values. Min is non-inclusive, Max is inclusive
     public static final int DECAYED_MIN = 0;
@@ -30,9 +30,12 @@ public class ModItems {
     public static final int MAX_HEALTH = 60;
 
     // Items
-    public static final RegistryObject<Item> DECAYED_HEART = REGISTER.register("decayed_heart", () -> new HeartItem(DECAYED_MIN, DECAYED_MAX, Rarity.UNCOMMON));
-    public static final RegistryObject<Item> HEART = REGISTER.register("heart", () -> new HeartItem(HEART_MIN, HEART_MAX, Rarity.RARE));
-    public static final RegistryObject<Item> ULTIMATE_HEART = REGISTER.register("ultimate_heart", () -> new HeartItem(ULTIMATE_MIN, ULTIMATE_MAX, Rarity.EPIC));
+    public static final RegistryObject<Item> DECAYED_HEART = REGISTER.register("decayed_heart",
+            () -> new HeartItem(DECAYED_MIN, DECAYED_MAX, Rarity.UNCOMMON));
+    public static final RegistryObject<Item> HEART = REGISTER.register("heart",
+            () -> new HeartItem(HEART_MIN, HEART_MAX, Rarity.RARE));
+    public static final RegistryObject<Item> ULTIMATE_HEART = REGISTER.register("ultimate_heart",
+            () -> new HeartItem(ULTIMATE_MIN, ULTIMATE_MAX, Rarity.EPIC));
 
     // Heart lists
     public static final List<Triple<ItemStack, Integer, Integer>> HEARTS = new ArrayList<>();
@@ -41,14 +44,6 @@ public class ModItems {
     public static void init(IEventBus eventBus) {
         // Register the Item Register to the event bus
         REGISTER.register(eventBus);
-    }
-
-    public static void addToCreative(CreativeModeTabEvent.BuildContents event) {
-        if (event.getTab() == CreativeTab.LIFESTEAL_TAB) {
-            event.accept(DECAYED_HEART);
-            event.accept(HEART);
-            event.accept(ULTIMATE_HEART);
-        }
     }
 
     public static List<ItemStack> getHeartIndex() {

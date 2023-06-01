@@ -5,6 +5,8 @@
   "item.lifesteal.heart": "Heart",
   "item.lifesteal.ultimate_heart": "Ultimate Heart",
 
+  "block.lifesteal.revive_block": "Revive Block",
+
   "tooltip.heart.right_click": "Right Click while holding to gain a permanent heart!",
   "tooltip.heart.shift": "Press SHIFT for more info",
   "tooltip.heart.min": "This item can only be used when you have more than %s hearts.",

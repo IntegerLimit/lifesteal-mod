@@ -7,7 +7,6 @@ import io.github.integerlimit.lifesteal.events.EventHandler;
 import io.github.integerlimit.lifesteal.events.SpawnBlockProtectionHandler;
 import io.github.integerlimit.lifesteal.items.CustomCreativeModeTab;
 import io.github.integerlimit.lifesteal.items.ModItems;
-import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -15,8 +14,6 @@ import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file

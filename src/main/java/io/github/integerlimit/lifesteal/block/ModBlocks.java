@@ -1,4 +1,4 @@
-package io.github.integerlimit.lifesteal.blocks;
+package io.github.integerlimit.lifesteal.block;
 
 import io.github.integerlimit.lifesteal.items.ModItems;
 import net.minecraft.world.item.BlockItem;

@@ -1,7 +1,8 @@
 package io.github.integerlimit.lifesteal;
 
 import com.mojang.logging.LogUtils;
-import io.github.integerlimit.lifesteal.blocks.ModBlocks;
+import io.github.integerlimit.lifesteal.block.ModBlocks;
+import io.github.integerlimit.lifesteal.block.entity.ModBlockEntities;
 import io.github.integerlimit.lifesteal.config.ServerConfig;
 import io.github.integerlimit.lifesteal.events.EventHandler;
 import io.github.integerlimit.lifesteal.events.SpawnBlockProtectionHandler;
@@ -45,6 +46,9 @@ public class LifeSteal
 
         // Blocks
         ModBlocks.init(modEventBus);
+
+        // Block Entities
+        ModBlockEntities.init(modEventBus);
 
         // Register Config
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, ServerConfig.getGeneralSpec());

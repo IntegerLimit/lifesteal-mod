@@ -4,7 +4,7 @@
         "particle": "minecraft:block/glass",
         "glass": "minecraft:block/glass",
         "redstone": "minecraft:block/redstone_block",
-        "revive": "lifesteal:block/revive_block_16_taller",
+        "revive": "lifesteal:block/revive_block",
         "beacon": "minecraft:block/beacon"
     },
     "elements": [
@@ -21,27 +21,27 @@
             }
         },
         {   "__comment": "Redstone base",
-            "from": [ 2, 0.1, 2 ],
-            "to": [ 14, 3, 14 ],
+            "from": [ 1, 0.1, 1 ],
+            "to": [ 15, 3, 15 ],
             "faces": {
-                "down":  { "uv": [ 2,  2, 14, 14 ], "texture": "#redstone" },
-                "up":    { "uv": [ 2,  2, 14, 14 ], "texture": "#redstone" },
-                "north": { "uv": [ 2, 13, 14, 16 ], "texture": "#redstone" },
-                "south": { "uv": [ 2, 13, 14, 16 ], "texture": "#redstone" },
-                "west":  { "uv": [ 2, 13, 14, 16 ], "texture": "#redstone" },
-                "east":  { "uv": [ 2, 13, 14, 16 ], "texture": "#redstone" }
+                "down":  { "uv": [ 1,  1, 15, 14 ], "texture": "#redstone" },
+                "up":    { "uv": [ 1,  1, 15, 14 ], "texture": "#redstone" },
+                "north": { "uv": [ 1, 14, 15, 16 ], "texture": "#redstone" },
+                "south": { "uv": [ 1, 14, 15, 16 ], "texture": "#redstone" },
+                "west":  { "uv": [ 1, 14, 15, 16 ], "texture": "#redstone" },
+                "east":  { "uv": [ 1, 14, 15, 16 ], "texture": "#redstone" }
             }
         },
         {   "__comment": "Inner beacon texture",
-            "from": [ 3, 3, 3 ],
-            "to": [ 13, 14, 13 ],
+            "from": [ 2, 3, 2 ],
+            "to": [ 14, 14, 14 ],
             "faces": {
-                "down":  { "uv": [ 3, 3, 13, 13 ], "texture": "#revive" },
-                "up":    { "uv": [ 3, 3, 13, 13 ], "texture": "#beacon" },
-                "north": { "uv": [ 3, 2, 13, 13 ], "texture": "#revive" },
-                "south": { "uv": [ 3, 2, 13, 13 ], "texture": "#revive" },
-                "west":  { "uv": [ 3, 2, 13, 13 ], "texture": "#revive" },
-                "east":  { "uv": [ 3, 2, 13, 13 ], "texture": "#revive" }
+                "down":  { "uv": [ 2, 2, 14, 13 ], "texture": "#beacon" },
+                "up":    { "uv": [ 2, 2, 14, 13 ], "texture": "#beacon" },
+                "north": { "uv": [ 2, 2, 14, 13 ], "texture": "#revive" },
+                "south": { "uv": [ 2, 2, 14, 13 ], "texture": "#revive" },
+                "west":  { "uv": [ 2, 2, 14, 13 ], "texture": "#revive" },
+                "east":  { "uv": [ 2, 2, 14, 13 ], "texture": "#revive" }
             }
         }
     ]

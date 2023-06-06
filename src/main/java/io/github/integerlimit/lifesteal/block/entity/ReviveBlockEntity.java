@@ -11,6 +11,8 @@ import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
@@ -31,8 +33,12 @@ public class ReviveBlockEntity extends BlockEntity implements MenuProvider {
 
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
 
+    // Amount of hearts to take away. -1 means that one heart will be taken away (put in 5 hearts, person revived with 4)
+    private final int compromise = -1;
+
+
     public ReviveBlockEntity(BlockPos pos, BlockState state) {
-        super(p_155228_, pos, state);
+        super(ModBlockEntities.REVIVE_BLOCK.get(), pos, state);
     }
 
     @Override
@@ -73,7 +79,7 @@ public class ReviveBlockEntity extends BlockEntity implements MenuProvider {
     }
 
     @Override
-    public void load(CompoundTag nbt) {
+    public void load(@NotNull CompoundTag nbt) {
         super.load(nbt);
         handler.deserializeNBT(nbt.getCompound("inventory"));
     }
@@ -89,4 +95,52 @@ public class ReviveBlockEntity extends BlockEntity implements MenuProvider {
 
         Containers.dropContents(this.level, this.worldPosition, inventory);
     }
+
+    /**
+     * @param entity The entity
+     * @return Returns the number of health to spawn player with
+     */
+    private int removeHearts(ReviveBlockEntity entity) {
+        // Get Heart Counts
+        int decayed_count = entity.handler.getStackInSlot(0).getCount();
+        int normal_count = entity.handler.getStackInSlot(1).getCount();
+        int ultimate_count = entity.handler.getStackInSlot(2).getCount();
+
+        // Remove all items
+        entity.handler.setStackInSlot(0, ItemStack.EMPTY);
+        entity.handler.setStackInSlot(1, ItemStack.EMPTY);
+        entity.handler.setStackInSlot(2, ItemStack.EMPTY);
+
+        return (decayed_count + normal_count + ultimate_count + compromise) * 2;
+    }
+
+    // Must revive person with at least 1 heart
+    private boolean canPerformRevive(ReviveBlockEntity entity) {
+        // Get Heart Counts
+        int decayed_count = entity.handler.getStackInSlot(0).getCount();
+        int normal_count = entity.handler.getStackInSlot(1).getCount();
+        int ultimate_count = entity.handler.getStackInSlot(2).getCount();
+
+        return (decayed_count + normal_count + ultimate_count + compromise) > 1;
+    }
+
+    /* May be needed later if a tick method is needed
+    public static void tick(Level level, BlockPos pos, BlockState state, ReviveBlockEntity entity) {
+        if(level.isClientSide()) {
+            return;
+        }
+
+        if(hasRecipe(entity)) {
+            entity.progress++;
+            setChanged(level, pos, state);
+
+            if(pEntity.progress >= pEntity.maxProgress) {
+                craftItem(pEntity);
+            }
+        } else {
+            pEntity.resetProgress();
+            setChanged(level, pos, state);
+        }
+    }
+    */
 }

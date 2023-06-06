@@ -1,5 +1,6 @@
 package io.github.integerlimit.lifesteal.block;
 
+import io.github.integerlimit.lifesteal.block.entity.ModBlockEntities;
 import io.github.integerlimit.lifesteal.block.entity.ReviveBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
@@ -65,10 +66,13 @@ public class ReviveBlock extends BaseEntityBlock {
         return InteractionResult.sidedSuccess(level.isClientSide());
     }
 
+    /* May be needed later if a tick method is needed
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(@NotNull Level level, @NotNull BlockState state,
                                                                   @NotNull BlockEntityType<T> type) {
-        return super.getTicker(level, state, type);
+        return createTickerHelper(type, ModBlockEntities.REVIVE_BLOCK.get(),
+                ReviveBlockEntity::tick);
     }
+     */
 }

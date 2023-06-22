@@ -27,7 +27,7 @@ public class SpawnBlockProtectionHandler {
      * @return Returns true if breaching spawn block protection.
      */
     private static boolean manageSpawnProtection(@Nonnull Entity entity, @Nonnull BlockPos pos, @Nonnull Event event) {
-        LifeSteal.getLogger().info("[SpawnBlockProtectionManager] Event " + event + " occurred");
+        LifeSteal.getLogger().debug("[SpawnBlockProtectionManager] Event " + event + " occurred");
         Level level = entity.getLevel();
         if (!level.dimension().equals(Level.OVERWORLD) || ServerConfig.getGeneralConfig().spawnProtectionRadius.get() == 0)
             return false;
@@ -92,7 +92,7 @@ public class SpawnBlockProtectionHandler {
     // Explosion Test and Cancel
     @SubscribeEvent
     public static void onBlockExplodedEvent(ExplosionEvent.Detonate event) {
-        LifeSteal.getLogger().info("[ExplosionEventManager] Explosion Event Occurred");
+        LifeSteal.getLogger().debug("[ExplosionEventManager] Explosion Event Occurred");
 
         Level level = event.getLevel();
 

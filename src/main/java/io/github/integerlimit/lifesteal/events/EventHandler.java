@@ -19,12 +19,12 @@ public class EventHandler
 {
     @SubscribeEvent
     public static void deathManager(LivingDeathEvent event) {
-        LifeSteal.getLogger().info("[DeathManager] Living Death Event Triggered");
+        LifeSteal.getLogger().debug("[DeathManager] Living Death Event Triggered");
         // Checks if it was player. If it is, ports value to player variable.
         if (!(event.getEntity() instanceof Player player))
             return;
 
-        LifeSteal.getLogger().info("[DeathManager] Is Player's death.");
+        LifeSteal.getLogger().debug("[DeathManager] Is Player's death.");
 
         // Checks
         if (player.getMaxHealth() <= 0) {
@@ -50,11 +50,11 @@ public class EventHandler
 
     @SubscribeEvent
     public static void playerCloneManager(PlayerEvent.Clone event) {
-        LifeSteal.getLogger().info("[PlayerCloneManager] Player.Clone Event Triggered");
+        LifeSteal.getLogger().debug("[PlayerCloneManager] Player.Clone Event Triggered");
         if (!event.isWasDeath())
             return;
 
-        LifeSteal.getLogger().info("[PlayerCloneManager] Player Died.");
+        LifeSteal.getLogger().debug("[PlayerCloneManager] Player Died.");
 
         // Reduce Health
         var oldHealth = event.getOriginal().getMaxHealth();

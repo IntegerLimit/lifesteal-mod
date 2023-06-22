@@ -71,8 +71,10 @@ public class LifeSteal
             event.accept(ModItems.HEART);
             event.accept(ModItems.ULTIMATE_HEART);
 
-            // Blocks
+            // Blocks TODO
+            /*
             event.accept(ModBlocks.REVIVE_BLOCK);
+            */
         }
     }
 

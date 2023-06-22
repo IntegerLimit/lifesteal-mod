@@ -12,15 +12,10 @@ import org.jetbrains.annotations.NotNull;
 
 public class ReviveBlockScreen extends AbstractContainerScreen<ReviveBlockMenu> {
     private static final ResourceLocation TEXTURE =
-            new ResourceLocation(LifeSteal.MODID,"textures/gui/gem_infusing_station_gui.png");
+            new ResourceLocation(LifeSteal.MODID,"textures/gui/revive_block_gui.png");
 
     public ReviveBlockScreen(ReviveBlockMenu menu, Inventory inventory, Component component) {
         super(menu, inventory, component);
-    }
-
-    @Override
-    protected void init() {
-        super.init();
     }
 
     @Override

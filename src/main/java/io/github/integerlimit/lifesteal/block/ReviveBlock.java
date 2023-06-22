@@ -53,8 +53,8 @@ public class ReviveBlock extends BaseEntityBlock {
                                           @NotNull Player player, @NotNull InteractionHand hand, @NotNull BlockHitResult hitResult) {
         if (!level.isClientSide()) {
             BlockEntity entity = level.getBlockEntity(pos);
-            if(entity instanceof ReviveBlockEntity) {
-                NetworkHooks.openScreen(((ServerPlayer)player), (ReviveBlockEntity) entity, pos);
+            if(entity instanceof ReviveBlockEntity reviveEntity) {
+                NetworkHooks.openScreen(((ServerPlayer) player), reviveEntity, pos);
             } else {
                 throw new IllegalStateException("Our Container provider is missing!");
             }
@@ -62,6 +62,8 @@ public class ReviveBlock extends BaseEntityBlock {
 
         return InteractionResult.sidedSuccess(level.isClientSide());
     }
+
+
 
     /* May be needed later if a tick method is needed
     @Nullable

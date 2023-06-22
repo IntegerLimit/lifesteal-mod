@@ -26,7 +26,7 @@ public class ReviveBlockMenu extends AbstractContainerMenu {
 
     public ReviveBlockMenu(int id, Inventory inventory, BlockEntity entity) {
         super(ModMenuTypes.REVIVE_BLOCK.get(), id);
-        checkContainerSize(inventory, 3);
+        checkContainerSize(inventory, 4);
         this.entity = (ReviveBlockEntity) entity;
         this.level = inventory.player.level;
 
@@ -35,8 +35,9 @@ public class ReviveBlockMenu extends AbstractContainerMenu {
 
         this.entity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(handler -> {
             this.addSlot(new SlotItemHandler(handler, 0, 86, 15));
-            this.addSlot(new SlotItemHandler(handler, 0, 86, 45));
-            this.addSlot(new SlotItemHandler(handler, 0, 86, 75));
+            this.addSlot(new SlotItemHandler(handler, 1, 86, 45));
+            this.addSlot(new SlotItemHandler(handler, 2, 86, 75));
+            this.addSlot(new SlotItemHandler(handler, 3, 26, 45));
         });
     }
 
@@ -50,7 +51,7 @@ public class ReviveBlockMenu extends AbstractContainerMenu {
     private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
 
 
-    private static final int TE_INVENTORY_SLOT_COUNT = 3;
+    private static final int TE_INVENTORY_SLOT_COUNT = 4;
 
     @Override
     public @NotNull ItemStack quickMoveStack(@NotNull Player player, int index) {

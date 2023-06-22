@@ -1,5 +1,6 @@
 package io.github.integerlimit.lifesteal.block.entity;
 
+import io.github.integerlimit.lifesteal.screen.ReviveBlockMenu;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -23,7 +24,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class ReviveBlockEntity extends BlockEntity implements MenuProvider {
-    private final ItemStackHandler handler = new ItemStackHandler(3) {
+    private final ItemStackHandler handler = new ItemStackHandler(4) {
         @Override
         protected void onContentsChanged(int slot) {
             setChanged();
@@ -32,7 +33,7 @@ public class ReviveBlockEntity extends BlockEntity implements MenuProvider {
 
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
 
-    // Amount of hearts to take away. -1 means that one heart will be taken away (put in 5 hearts, person revived with 4)
+    // Amount of Decayed Hearts to sacrifice per revive. -1 means that one decayed heart will be taken away.
     private final int compromise = -1;
 
 
@@ -42,13 +43,13 @@ public class ReviveBlockEntity extends BlockEntity implements MenuProvider {
 
     @Override
     public @NotNull Component getDisplayName() {
-        return Component.translatable("gui.lifesteal.revive_block.title").withStyle(ChatFormatting.AQUA);
+        return Component.translatable("gui.lifesteal.revive_block.title").withStyle(ChatFormatting.DARK_AQUA);
     }
 
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int id, @NotNull Inventory inventory, @NotNull Player player) {
-        return null;
+        return new ReviveBlockMenu(id, inventory, this);
     }
 
     @Override

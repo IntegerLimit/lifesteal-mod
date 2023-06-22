@@ -8,12 +8,16 @@ import io.github.integerlimit.lifesteal.events.EventHandler;
 import io.github.integerlimit.lifesteal.events.SpawnBlockProtectionHandler;
 import io.github.integerlimit.lifesteal.items.CustomCreativeModeTab;
 import io.github.integerlimit.lifesteal.items.ModItems;
+import io.github.integerlimit.lifesteal.screen.ModMenuTypes;
+import io.github.integerlimit.lifesteal.screen.ReviveBlockScreen;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 
@@ -41,6 +45,9 @@ public class LifeSteal
         // Register Creative Tab adder
         modEventBus.addListener(this::addToCreative);
 
+        // Client Setup
+        modEventBus.addListener(this::clientSetup);
+
         // Items
         ModItems.init(modEventBus);
 
@@ -49,6 +56,7 @@ public class LifeSteal
 
         // Block Entities
         ModBlockEntities.init(modEventBus);
+        ModMenuTypes.init(modEventBus);
 
         // Register Config
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, ServerConfig.getGeneralSpec());
@@ -68,5 +76,9 @@ public class LifeSteal
 
     public static Logger getLogger() {
         return LOGGER;
+    }
+
+    public void clientSetup(FMLClientSetupEvent event){
+        MenuScreens.register(ModMenuTypes.REVIVE_BLOCK.get(), ReviveBlockScreen::new);
     }
 }

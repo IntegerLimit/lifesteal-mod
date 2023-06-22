@@ -25,7 +25,7 @@ public class ReviveBlockMenu extends AbstractContainerMenu {
     }
 
     public ReviveBlockMenu(int id, Inventory inventory, BlockEntity entity) {
-        super(, id);
+        super(ModMenuTypes.REVIVE_BLOCK.get(), id);
         checkContainerSize(inventory, 3);
         this.entity = (ReviveBlockEntity) entity;
         this.level = inventory.player.level;

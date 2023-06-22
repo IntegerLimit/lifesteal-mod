@@ -36,6 +36,9 @@ public class ModItems {
     public static final RegistryObject<Item> ULTIMATE_HEART = REGISTER.register("ultimate_heart",
             () -> new HeartItem(ULTIMATE_MIN, ULTIMATE_MAX, Rarity.EPIC));
 
+    public static final RegistryObject<Item> AXOLOTL_SWITCHER = REGISTER.register("axolotl_switcher",
+            AxolotlSwitcher::new);
+
     // Heart lists
     public static final List<Triple<ItemStack, Integer, Integer>> HEARTS = new ArrayList<>();
     private static List<ItemStack> HEART_INDEX = null;

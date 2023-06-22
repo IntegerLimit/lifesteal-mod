@@ -70,6 +70,7 @@ public class LifeSteal
             event.accept(ModItems.DECAYED_HEART);
             event.accept(ModItems.HEART);
             event.accept(ModItems.ULTIMATE_HEART);
+            event.accept(ModItems.AXOLOTL_SWITCHER);
 
             // Blocks TODO
             /*

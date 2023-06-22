@@ -74,8 +74,8 @@ public class HeartItem extends Item {
         components.add(Component.translatable("tooltip.heart.right_click").withStyle(ChatFormatting.AQUA));
         if (Screen.hasShiftDown()) {
             if (minHearts != 0)
-                components.add(Component.translatable("tooltip.heart.min", minHearts).withStyle(ChatFormatting.RED));
-            components.add(Component.translatable("tooltip.heart.max", maxHearts).withStyle(ChatFormatting.RED));
+                components.add(Component.translatable("tooltip.heart.min", minHearts/2).withStyle(ChatFormatting.RED));
+            components.add(Component.translatable("tooltip.heart.max", maxHearts/2).withStyle(ChatFormatting.RED));
         }
         else
             components.add(Component.translatable("tooltip.heart.shift").withStyle(ChatFormatting.YELLOW));

@@ -1,8 +1,8 @@
 {   "parent": "minecraft:block/block",
     "render_type": "translucent",
     "textures": {
-        "particle": "minecraft:block/glass",
-        "glass": "minecraft:block/glass",
+        "particle": "minecraft:block/red_stained_glass",
+        "glass": "minecraft:block/red_stained_glass",
         "redstone": "minecraft:block/redstone_block",
         "revive": "lifesteal:block/revive_block",
         "beacon": "minecraft:block/beacon"

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "DDA",
+    "DSD",
+    "SDD"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:axolotl_bucket"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "D": {
+      "tag": "forge:dyes"
+    }
+  },
+  "result": {
+    "item": "lifesteal:axolotl_switcher"
+  },
+  "show_notification": false
+}

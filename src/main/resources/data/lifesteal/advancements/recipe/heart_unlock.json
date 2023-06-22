@@ -17,7 +17,8 @@
       "lifesteal:heart",
       "lifesteal:ultimate_heart",
       "lifesteal:heart_to_decayed",
-      "lifesteal:ultimate_to_heart"
+      "lifesteal:ultimate_to_heart",
+      "lifesteal:axolotl_switcher"
     ]
   }
 }

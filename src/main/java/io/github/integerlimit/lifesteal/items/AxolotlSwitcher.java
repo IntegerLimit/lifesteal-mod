@@ -52,6 +52,7 @@ public class AxolotlSwitcher extends Item {
         }
 
         int newVariant = (originalVariant + 1) % variants.length;
+
         axolotl.setVariant(variants[newVariant]);
 
         CompoundTag tag = stack.hasTag() ? stack.getTag().copy() : new CompoundTag();

@@ -51,12 +51,14 @@ public class LifeSteal
         // Items
         ModItems.init(modEventBus);
 
+        /* Disabled for time being. TODO Also TODO fix Items appearing just red stained glass????
         // Blocks
         ModBlocks.init(modEventBus);
 
         // Block Entities
         ModBlockEntities.init(modEventBus);
         ModMenuTypes.init(modEventBus);
+         */
 
         // Register Config
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, ServerConfig.getGeneralSpec());
@@ -79,6 +81,8 @@ public class LifeSteal
     }
 
     public void clientSetup(FMLClientSetupEvent event){
+        /* TODO
         MenuScreens.register(ModMenuTypes.REVIVE_BLOCK.get(), ReviveBlockScreen::new);
+         */
     }
 }
